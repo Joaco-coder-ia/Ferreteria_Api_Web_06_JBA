@@ -1,0 +1,1573 @@
+/* Hoja única de estilos para la tienda y el administrador, según la ERS. */
+/* Aqui dejamos los colores principales para no repetirlos en todo el archivo. */
+:root {
+  --ink: #153b35;
+  --deep: #0e302b;
+  --green: #236b5b;
+  --cream: #f7f4ec;
+  --paper: #fffdf8;
+  --yellow: #f7b733;
+  --coral: #d86b4d;
+  --line: #d9ddd5;
+  --muted: #65716d;
+  --error: #a33b2f;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+
+/* Esto hace que padding y border formen parte del tamano total. */
+* {
+  box-sizing: border-box;
+}
+
+
+/* Quitamos el margen automatico y dejamos un ancho minimo para celulares. */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--cream);
+}
+
+
+/* Los enlaces mantienen el color de la seccion donde se encuentran. */
+a {
+  color: inherit;
+}
+
+
+/* Dejamos una señal visible cuando se navega ocupando el teclado. */
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+
+/* JavaScript utiliza hidden para decidir que vista corresponde mostrar. */
+.view[hidden],
+[data-home-only][hidden] {
+  display: none;
+}
+
+
+
+/* Cabecera y navegacion principal                                             */
+
+
+/* La cabecera queda arriba para que el menu siga disponible al bajar. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 72px;
+  padding: 12px 5%;
+
+  background: var(--deep);
+  color: #fff;
+}
+
+
+/* La marca junta el icono con el nombre de la ferreteria. */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+
+/* Con grid centramos el simbolo de la casa dentro del cuadrado. */
+.brand-mark {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: var(--yellow);
+  color: var(--deep);
+  border-radius: 12px;
+  font-size: 27px;
+}
+
+
+/* Separamos el nombre principal de su texto secundario. */
+.brand strong,
+.brand small {
+  display: block;
+}
+
+
+/* El texto secundario se deja mas chico para crear jerarquia. */
+.brand small {
+  margin-top: 3px;
+  color: #cbd9d2;
+  font-size: 11px;
+}
+
+
+/* En celulares el menu comienza oculto y se abre con JavaScript. */
+.main-nav {
+  position: absolute;
+  top: 72px;
+  right: 0;
+  left: 0;
+
+  display: none;
+  padding: 14px 5%;
+
+  background: var(--deep);
+  border-top: 1px solid #416258;
+}
+
+
+/* app.js agrega is-open cuando apretamos el boton del menu movil. */
+.main-nav.is-open {
+  display: grid;
+  gap: 14px;
+}
+
+
+/* Quitamos el subrayado para que los enlaces se vean como opciones del menu. */
+.main-nav a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+/* Esta linea indica visualmente la pagina donde estamos parados. */
+.main-nav a[aria-current='page'] {
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+
+/* Este boton solamente se necesita mientras el menu completo no cabe. */
+.menu-button {
+  padding: 10px 12px;
+
+  border: 1px solid #6d8b81;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+/* Inicio y presentacion principal                                             */
+
+
+/* El inicio ocupa un fondo oscuro para separar la presentacion del contenido. */
+.hero-view {
+  display: grid;
+  gap: 30px;
+
+  padding: 72px 5% 68px;
+
+  background: linear-gradient(
+    115deg,
+    var(--deep),
+    #205d50
+  );
+  color: #fff;
+}
+
+
+/* Los textos eyebrow funcionan como una etiqueta antes de cada titulo. */
+.eyebrow {
+  color: var(--coral);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+/* Dentro del bloque oscuro usamos amarillo para tener mejor contraste. */
+.hero-view .eyebrow {
+  color: var(--yellow);
+}
+
+
+/* Todos los titulos ocupan una altura parecida y un margen consistente. */
+h1,
+h2,
+h3 {
+  margin: 0 0 16px;
+  line-height: 1.05;
+}
+
+
+/* clamp adapta el titulo sin dejar que quede demasiado chico o gigante. */
+.hero-copy h1 {
+  max-width: 850px;
+  font-size: clamp(40px, 10vw, 76px);
+}
+
+
+/* Limitamos el ancho del parrafo para que sea mas comodo leerlo. */
+.hero-copy > p:not(.eyebrow) {
+  max-width: 680px;
+  color: #d8e4de;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+
+/* Esta fila acomoda juntos los botones principales y permite que bajen de linea. */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+
+/* Creamos una base que sirve para todos los botones grandes. */
+.button {
+  display: inline-block;
+  padding: 14px 18px;
+
+  border: 0;
+  border-radius: 9px;
+
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* El boton amarillo representa la accion principal. */
+.button-primary {
+  background: var(--yellow);
+  color: var(--deep);
+}
+
+
+/* Este segundo boton se usa sobre fondos oscuros. */
+.button-outline {
+  border: 1px solid #a4c0b5;
+  background: transparent;
+  color: #fff;
+}
+
+
+/* Dentro de Mi cuenta cambiamos el color porque la tarjeta tiene fondo claro. */
+.account-button {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+
+/* full hace que el boton ocupe todo el espacio de su contenedor. */
+.full {
+  width: 100%;
+}
+
+
+/* Los botones desactivados indican que un producto no se puede agregar. */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* Esta tarjeta resume la cantidad de productos, categorias y stock. */
+.hero-summary {
+  max-width: 350px;
+  padding: 25px;
+
+  border: 1px solid #688b7e;
+  border-radius: 16px;
+
+  background: #ffffff16;
+}
+
+
+/* Quitamos el margen superior del primer texto del resumen. */
+.hero-summary p {
+  margin: 0 0 15px;
+}
+
+
+/* El total se muestra grande porque es el dato mas importante. */
+.hero-summary > strong {
+  display: block;
+  font-size: 72px;
+}
+
+
+/* El texto que acompaña al total usa un tono mas suave. */
+.hero-summary > span {
+  display: block;
+  color: #d6e2dc;
+  line-height: 1.4;
+}
+
+
+/* Dividimos las otras estadisticas en dos columnas iguales. */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  margin-top: 25px;
+  padding-top: 16px;
+  border-top: 1px solid #628276;
+}
+
+
+/* Cada numero y su etiqueta ocupan su propia linea. */
+.summary-grid b,
+.summary-grid small {
+  display: block;
+}
+
+
+/* Damos mas importancia visual a los numeros. */
+.summary-grid b {
+  font-size: 24px;
+}
+
+
+/* Las etiquetas se ven mas suaves que los numeros. */
+.summary-grid small {
+  margin-top: 4px;
+  color: #c8d8d0;
+}
+
+
+/* Secciones y tarjetas generales                                             */
+
+
+/* Todas las secciones mantienen el mismo ancho y espacio interior. */
+.content-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 58px 5%;
+}
+
+
+/* La introduccion puede ocupar todo el ancho del fondo. */
+.intro-section {
+  max-width: none;
+}
+
+
+/* Este titulo tambien cambia suavemente segun el espacio disponible. */
+.intro-section h2 {
+  max-width: 680px;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+
+/* Las tres caracteristicas comienzan en una columna para celulares. */
+.feature-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+
+/* Reutilizamos la misma base para las tarjetas de todo el sitio. */
+.feature-grid article,
+.product-card,
+.detail-card,
+.auth-card,
+.account-card,
+.cart-item,
+.summary-card {
+  padding: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+
+/* Los numeros de las caracteristicas ocupan el color coral. */
+.feature-grid b {
+  color: var(--coral);
+}
+
+
+/* Usamos un color secundario para los textos descriptivos. */
+.feature-grid p,
+.product-card p,
+.detail-card p,
+.account-card p,
+.cart-item p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+
+/* Dejamos espacio entre el encabezado y el contenido de cada seccion. */
+.section-heading {
+  margin-bottom: 28px;
+}
+
+
+/* El titulo interior crece dependiendo de la pantalla. */
+.section-heading h1 {
+  font-size: clamp(34px, 6vw, 62px);
+}
+
+
+/* El ultimo parrafo del encabezado funciona como explicacion secundaria. */
+.section-heading > p:last-child {
+  color: var(--muted);
+}
+
+
+/* Formularios, buscador y filtros                                             */
+
+
+/* Los filtros se ordenan primero hacia abajo para que entren en un celular. */
+.filter-bar {
+  display: grid;
+  gap: 15px;
+
+  margin-bottom: 25px;
+  padding: 18px;
+
+  background: #ebe8de;
+  border-radius: 14px;
+}
+
+
+/* Las etiquetas se dejan arriba de sus controles para entender cada campo. */
+.filter-bar label,
+.auth-card label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* Todos los campos comparten el mismo borde, espacio y tipo de letra. */
+.filter-bar input,
+.filter-bar select,
+.auth-card input,
+.auth-card textarea,
+.quantity-input {
+  width: 100%;
+  padding: 12px;
+
+  border: 1px solid #bfc9c2;
+  border-radius: 8px;
+
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+
+/* El comentario puede crecer hacia abajo pero no romper el ancho del formulario. */
+.auth-card textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+
+/* Acomodamos el checkbox al lado de su explicacion. */
+.check-label {
+  display: flex !important;
+  align-items: center;
+  align-self: end;
+  gap: 8px;
+}
+
+
+/* Evitamos que el checkbox tome el ancho completo de los otros controles. */
+.check-label input {
+  width: auto;
+}
+
+
+
+/* Catalogo y detalle de productos                                             */
+
+
+/* auto-fit crea las columnas que caben y minmax evita tarjetas muy angostas. */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+
+/* Usamos flex para mantener los botones alineados aunque cambie el nombre. */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 245px;
+}
+
+
+/* La categoria aparece como una etiqueta pequeña sobre el nombre. */
+.product-card .category,
+.detail-card .category {
+  color: var(--coral);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+/* Damos un poco de separacion al nombre de cada producto. */
+.product-card h2 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+
+/* margin-top auto empuja el precio hacia la parte baja de la tarjeta. */
+.product-card .price {
+  margin-top: auto;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* El stock es informacion secundaria y por eso ocupa menos tamano. */
+.product-card .stock {
+  font-size: 13px;
+}
+
+
+/* Los botones chicos se usan en las tarjetas del catalogo. */
+.small-button {
+  padding: 11px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* Estos botones parecen enlaces porque se ocupan para volver o cambiar de vista. */
+.text-button,
+.link-button {
+  margin-bottom: 20px;
+  padding: 0;
+
+  border: 0;
+  background: none;
+  color: var(--green);
+
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* Las vistas mas cortas no necesitan ocupar todo el ancho del catalogo. */
+.narrow {
+  max-width: 700px;
+}
+
+
+/* El detalle separa sus datos con una grilla sencilla. */
+.detail-card {
+  display: grid;
+  gap: 18px;
+}
+
+
+/* El nombre se agranda porque es el contenido principal del detalle. */
+.detail-card h1 {
+  font-size: 40px;
+}
+
+
+/* El precio del detalle debe destacar entre el resto de los datos. */
+.detail-price {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+/* Carrito y resumen del pedido                                                */
+
+
+/* En pantallas chicas el resumen se muestra debajo de los productos. */
+.cart-layout {
+  display: grid;
+  gap: 20px;
+}
+
+
+/* Cada fila junta la informacion con su cantidad y subtotal. */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+
+/* El nombre del producto no necesita el tamano de un titulo principal. */
+.cart-item h2 {
+  font-size: 19px;
+}
+
+
+/* Las acciones se ordenan y dejan el subtotal sin cortes de linea. */
+.cart-item-actions {
+  display: grid;
+  justify-items: end;
+  gap: 9px;
+}
+
+
+/* Evitamos que el valor del subtotal se separe en dos lineas. */
+.cart-item strong {
+  white-space: nowrap;
+}
+
+
+/* La cantidad solo necesita espacio para unos pocos numeros. */
+.quantity-input {
+  max-width: 75px;
+}
+
+
+/* El resumen mantiene solamente la altura que necesita su contenido. */
+.summary-card {
+  height: max-content;
+}
+
+
+/* Bajamos el tamano del titulo dentro del resumen. */
+.summary-card h2 {
+  font-size: 25px;
+}
+
+
+/* Separamos el texto Total de su valor usando los extremos de la fila. */
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 22px;
+}
+
+
+/* Quitamos el estilo normal del fieldset para integrarlo en la tarjeta. */
+.summary-card fieldset {
+  display: grid;
+  gap: 10px;
+
+  margin: 20px 0;
+  padding: 0;
+  border: 0;
+}
+
+
+/* Las alternativas de entrega se dejan compactas. */
+.summary-card label {
+  font-size: 14px;
+}
+
+
+/* Acceso, registro, contacto y cuenta                                         */
+
+
+/* Centramos los formularios y evitamos que se vuelvan demasiado anchos. */
+.auth-card {
+  max-width: 540px;
+  margin: auto;
+}
+
+
+/* Los tres usuarios de prueba se muestran en columnas iguales. */
+.demo-users {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 20px 0;
+}
+
+
+/* Estos botones tienen menos importancia que el boton Entrar. */
+.demo-users button {
+  padding: 10px 4px;
+
+  border: 1px solid var(--line);
+  border-radius: 7px;
+
+  background: #f1f2ec;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
+/* validaciones.js agrega esta clase al perfil demo que elegimos. */
+.demo-users button.is-selected {
+  background: var(--green);
+  color: #fff;
+}
+
+
+/* Dejamos un espacio parejo entre todos los campos del formulario. */
+.auth-card form,
+form.auth-card {
+  display: grid;
+  gap: 8px;
+}
+
+
+/* Las ayudas explican datos de demostracion sin llamar tanto la atencion. */
+.form-help {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* Los errores ocupan rojo para diferenciarlos de un resultado correcto. */
+.form-error,
+.form-message.is-error {
+  color: var(--error);
+  font-size: 13px;
+}
+
+
+/* Los mensajes correctos aparecen dentro de una caja verde clara. */
+.form-message {
+  padding: 10px;
+
+  border-radius: 7px;
+  background: #e7f4e9;
+  color: #1b6546;
+}
+
+
+/* Al existir un error cambiamos tambien el fondo del mensaje. */
+.form-message.is-error {
+  background: #fbe9e6;
+}
+
+
+/* Las tarjetas de la cuenta comienzan una debajo de la otra. */
+.account-grid {
+  display: grid;
+  gap: 16px;
+}
+
+
+/* Los nombres dentro de la cuenta usan un titulo mediano. */
+.account-card h2 {
+  font-size: 20px;
+}
+
+
+/* Esta caja se ocupa cuando todavia no tenemos productos o resultados. */
+.empty {
+  padding: 30px;
+
+  border: 1px dashed #b7c2bb;
+  border-radius: 12px;
+
+  background: var(--paper);
+  text-align: center;
+}
+
+
+/* Pie de pagina                                                               */
+
+
+/* El footer cierra todas las paginas con la informacion general. */
+.site-footer {
+  display: grid;
+  gap: 7px;
+
+  padding: 35px 5%;
+
+  background: var(--deep);
+  color: #d9e4df;
+  font-size: 13px;
+}
+
+
+/* El nombre de la ferreteria destaca sobre los otros datos. */
+.site-footer strong {
+  color: #fff;
+  font-size: 17px;
+}
+
+
+/* Diseño adaptable                                                            */
+
+
+/* Desde 600px usamos columnas porque ya tenemos mas espacio disponible. */
+@media (min-width: 600px) {
+  .hero-view {
+    grid-template-columns: 1fr 330px;
+    align-items: center;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filter-bar {
+    grid-template-columns: 2fr 1fr auto;
+    align-items: end;
+  }
+
+  .cart-layout {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .account-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* Desde 900px cambiamos el boton movil por la navegacion completa. */
+@media (min-width: 900px) {
+  .menu-button {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  .hero-view {
+    padding-top: 105px;
+    padding-bottom: 105px;
+  }
+
+  .hero-copy h1 {
+    font-size: 76px;
+  }
+}
+
+
+/* En celulares angostos dejamos las filas del carrito una debajo de otra. */
+@media (max-width: 480px) {
+  .cart-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cart-item-actions {
+    width: 100%;
+    justify-items: start;
+  }
+
+  .demo-users {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Panel administrativo                                                       */
+
+
+/* El panel mantiene la identidad de la tienda, con una lectura mas operativa. */
+.admin-body {
+  min-width: 320px;
+  background: #e8ede8;
+}
+
+
+.admin-shell {
+  min-height: 100vh;
+}
+
+
+.admin-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 24px 20px;
+  background: var(--deep);
+  color: #fff;
+}
+
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+
+.admin-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--yellow);
+  color: var(--deep);
+  border-radius: 8px;
+  font-size: 24px;
+}
+
+
+.admin-brand strong,
+.admin-brand small {
+  display: block;
+}
+
+
+.admin-brand small {
+  margin-top: 2px;
+  color: #b9cbc4;
+  font-size: 12px;
+}
+
+
+.admin-context {
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #416258;
+  color: #b9cbc4;
+  font-size: 13px;
+}
+
+
+.admin-nav {
+  display: grid;
+  gap: 7px;
+}
+
+
+.admin-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border-left: 4px solid transparent;
+  color: #dbe7e2;
+  text-decoration: none;
+}
+
+
+.admin-nav a:hover,
+.admin-nav a[aria-current="page"] {
+  border-left-color: var(--yellow);
+  background: #19483f;
+  color: #fff;
+}
+
+
+.admin-sidebar-footer {
+  display: grid;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #416258;
+  color: #b9cbc4;
+  font-size: 12px;
+}
+
+
+.admin-sidebar-footer a {
+  color: #fff;
+}
+
+
+.admin-sidebar-footer p {
+  margin: 0;
+}
+
+
+.admin-workspace {
+  min-width: 0;
+}
+
+
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  padding: 14px 5%;
+  border-bottom: 1px solid #c8d0ca;
+  background: #f7f9f6;
+}
+
+
+.admin-topbar p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+.admin-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.admin-user-chip span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+}
+
+
+.admin-main {
+  display: grid;
+  gap: 24px;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 36px 5% 56px;
+}
+
+
+.admin-page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+
+.admin-page-heading h1 {
+  margin: 0 0 7px;
+  color: var(--deep);
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1;
+}
+
+
+.admin-page-heading p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+}
+
+
+.admin-kicker {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-metrics {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+
+.admin-metric {
+  min-height: 142px;
+  padding: 20px;
+  border-top: 5px solid var(--green);
+  background: var(--paper);
+}
+
+
+.admin-metric strong {
+  display: block;
+  margin: 18px 0 5px;
+  color: var(--deep);
+  font-size: 38px;
+}
+
+
+.admin-metric span,
+.admin-metric small {
+  display: block;
+  color: var(--muted);
+}
+
+
+.admin-panel {
+  padding: 22px;
+  border: 1px solid #c8d0ca;
+  background: var(--paper);
+}
+
+
+.admin-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+
+.admin-panel-header h2,
+.admin-panel-header p {
+  margin: 0;
+}
+
+
+.admin-panel-header p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+
+.admin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 2px solid var(--green);
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.admin-button:hover {
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+
+.admin-button-secondary {
+  background: transparent;
+  color: var(--green);
+}
+
+
+.admin-button-warning {
+  border-color: var(--yellow);
+  background: var(--yellow);
+  color: var(--deep);
+}
+
+
+.admin-shortcuts {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+
+.admin-shortcut {
+  display: block;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: #f4f6f2;
+  text-decoration: none;
+}
+
+
+.admin-shortcut strong,
+.admin-shortcut span {
+  display: block;
+}
+
+
+.admin-shortcut strong {
+  margin-bottom: 5px;
+  color: var(--deep);
+}
+
+
+.admin-shortcut span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+
+.admin-table th,
+.admin-table td {
+  padding: 13px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+
+
+.admin-table th {
+  background: #eef2ed;
+  color: var(--deep);
+  font-size: 12px;
+}
+
+
+.admin-table tbody tr:hover {
+  background: #faf6e8;
+}
+
+
+.admin-table a {
+  color: var(--green);
+  font-weight: 700;
+}
+
+
+.admin-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e0efe7;
+  color: #1f5c49;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.admin-badge-warning {
+  background: #fff0bd;
+  color: #6c5410;
+}
+
+
+.admin-detail-grid {
+  display: grid;
+  gap: 22px;
+}
+
+
+.admin-product-visual {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  padding: 24px;
+  background: #eef2ed;
+}
+
+
+.admin-product-visual img {
+  width: min(360px, 100%);
+  max-height: 280px;
+  object-fit: contain;
+}
+
+
+.admin-details {
+  margin: 0;
+}
+
+
+.admin-details div {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.7fr) 1.3fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+
+.admin-details dt {
+  color: var(--muted);
+}
+
+
+.admin-details dd {
+  margin: 0;
+  color: var(--deep);
+  font-weight: 700;
+}
+
+
+.admin-form {
+  display: grid;
+  gap: 20px;
+}
+
+
+.admin-form-grid {
+  display: grid;
+  gap: 18px;
+}
+
+
+.admin-field {
+  display: grid;
+  gap: 7px;
+}
+
+
+.admin-field label,
+.admin-field legend {
+  color: var(--deep);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.admin-field input,
+.admin-field select,
+.admin-field textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #aeb9b1;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+
+.admin-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+.admin-field small {
+  color: var(--muted);
+}
+
+
+.admin-field .is-invalid {
+  border-color: #b42318;
+  box-shadow: 0 0 0 3px rgb(180 35 24 / 12%);
+}
+
+
+.admin-field .admin-field-error {
+  color: #b42318;
+  font-weight: 700;
+}
+
+
+.admin-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+
+.admin-form-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+
+.admin-form-status {
+  margin: 0;
+  padding: 11px 13px;
+  border-left: 4px solid #b42318;
+  background: #fff1f0;
+  color: #7a271a;
+  font-weight: 700;
+}
+
+
+.admin-form-status-success {
+  border-left-color: var(--green);
+  background: #eaf4ef;
+  color: var(--green);
+}
+
+
+.admin-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+
+.admin-empty-state {
+  grid-column: 1 / -1;
+}
+
+
+@media (min-width: 720px) {
+  .admin-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-field-full {
+    grid-column: 1 / -1;
+  }
+
+  .admin-detail-grid {
+    grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  }
+}
+
+
+@media (min-width: 900px) {
+  .admin-shell {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  .admin-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+
+@media (max-width: 899px) {
+  .admin-sidebar {
+    gap: 16px;
+  }
+
+  .admin-context,
+  .admin-sidebar-footer p {
+    display: none;
+  }
+
+  .admin-nav {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .admin-nav a {
+    flex: 0 0 auto;
+    border-bottom: 3px solid transparent;
+    border-left: 0;
+  }
+
+  .admin-nav a:hover,
+  .admin-nav a[aria-current="page"] {
+    border-bottom-color: var(--yellow);
+    border-left-color: transparent;
+  }
+
+  .admin-sidebar-footer {
+    margin-top: 0;
+    padding-top: 12px;
+  }
+}
+
+
+@media (max-width: 620px) {
+  .admin-topbar,
+  .admin-page-heading,
+  .admin-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-main {
+    padding-top: 26px;
+  }
+
+  .admin-panel {
+    padding: 16px;
+  }
+
+  .admin-details div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .admin-actions,
+  .admin-actions .admin-button,
+  .admin-form-footer .admin-button {
+    width: 100%;
+  }
+}
+
+/* Elementos compartidos por las nuevas páginas independientes. */
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.product-image-fallback {
+  padding: 24px;
+  text-align: center;
+  background: #eef1ed;
+  color: #52665d;
+}
+
+.is-invalid {
+  border-color: #a52727;
+}
+
+.main-nav {
+  flex-wrap: wrap;
+}
+
+.admin-sidebar-footer .text-button {
+  color: #fff;
+}
+
+#cart-status {
+  max-width: 1100px;
+  margin: 16px auto;
+}
