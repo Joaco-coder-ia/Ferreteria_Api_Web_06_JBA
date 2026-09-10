@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Crear cuenta de Ferretería Los Maestros" />
+    <title>Crear cuenta | Ferretería Los Maestros</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body data-raiz="../">
+    <!-- Los enlaces conectan páginas independientes sin cambiar vistas con JavaScript. -->
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Volver al inicio">
+        <img
+          class="brand-logo"
+          src="../assets/logo/logo-losMaestros.png"
+          alt="Ferretería Los Maestros"
+        />
+        <span
+          ><strong>Los Maestros</strong
+          ><small>Ferretería y construcción</small></span
+        >
+      </a>
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰ <span>Menú</span>
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../tienda/catalogo.html">Catálogo</a>
+        <a href="../tienda/carrito.html"
+          >Carrito <span id="cart-count">0</span></a
+        >
+        <a href="../index.html#nosotros">Nosotros</a>
+        <a href="../index.html#blog">Blog</a>
+        <a id="nav-contacto" href="../tienda/contacto.html">Contacto</a>
+        <a id="nav-cuenta" href="../tienda/cuenta.html" hidden>Mi cuenta</a>
+        <a id="nav-ingreso" href="../tienda/inicio-sesion.html">Ingreso</a>
+        <a id="nav-admin" href="../admin/index.html" hidden>Administración</a>
+        <button id="nav-salir" class="nav-salir" type="button" data-logout hidden>
+          Cerrar sesión
+        </button>
+      </nav>
+    </header>
+    <main id="app" tabindex="-1">
+      <section class="content-section narrow">
+        <h1>Crear una cuenta</h1>
+        <p>Registro de cliente para esta demostración local.</p>
+
+        <form id="register-form" class="admin-form auth-card" novalidate>
+          <!-- Bloque 1: identificación de la persona que se registra. -->
+          <fieldset class="registro-bloque">
+            <legend>Datos personales</legend>
+            <div class="admin-form-grid">
+              <div class="admin-field">
+                <label for="user-name">Nombre *</label>
+                <input
+                  id="user-name"
+                  name="nombre"
+                  type="text"
+                  maxlength="50"
+                  required
+                />
+              </div>
+
+              <div class="admin-field">
+                <label for="user-lastname">Apellidos *</label>
+                <input
+                  id="user-lastname"
+                  name="apellidos"
+                  type="text"
+                  maxlength="100"
+                  required
+                />
+              </div>
+
+              <div class="admin-field">
+                <label for="user-run">RUN *</label>
+                <input
+                  id="user-run"
+                  name="run"
+                  type="text"
+                  minlength="7"
+                  maxlength="9"
+                  placeholder="123456785"
+                  required
+                />
+                <small>Sin puntos ni guion.</small>
+              </div>
+
+              <div class="admin-field">
+                <label for="user-birthdate">Fecha de nacimiento</label>
+                <input id="user-birthdate" name="fechaNacimiento" type="date" />
+              </div>
+
+              <div class="admin-field">
+                <label for="user-region">Región *</label>
+                <select id="user-region" name="region" required></select>
+              </div>
+
+              <div class="admin-field">
+                <label for="user-commune">Comuna *</label>
+                <select id="user-commune" name="comuna" required>
+                  <option value="">Selecciona primero una región</option>
+                </select>
+              </div>
+
+              <div class="admin-field admin-field-full">
+                <label for="user-address">Dirección *</label>
+                <textarea
+                  id="user-address"
+                  name="direccion"
+                  maxlength="300"
+                  required
+                ></textarea>
+                <small>Se usará como dirección de despacho.</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Bloque 2: el tipo de cuenta decide si se piden datos de empresa. -->
+          <fieldset class="registro-bloque">
+            <legend>Tipo de cuenta</legend>
+            <div class="admin-form-grid">
+              <div class="admin-field admin-field-full">
+                <label for="user-account-type">¿Cómo vas a comprar? *</label>
+                <select id="user-account-type" name="tipoCuenta" required>
+                  <option value="Cliente">Cliente particular</option>
+                  <option value="Contratista">
+                    Contratista o empresa (con cuenta corriente)
+                  </option>
+                </select>
+                <small>
+                  Los contratistas cargan sus compras a una cuenta corriente que
+                  se paga al cierre de cada mes.
+                </small>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Bloque 3: sólo visible cuando se elige el perfil de contratista. -->
+          <fieldset id="empresa-bloque" class="registro-bloque" hidden>
+            <legend>Datos de la empresa</legend>
+            <div class="admin-form-grid">
+              <div class="admin-field">
+                <label for="empresa-rut">RUT de la empresa *</label>
+                <input
+                  id="empresa-rut"
+                  name="empresaRut"
+                  type="text"
+                  minlength="7"
+                  maxlength="9"
+                  placeholder="761234567"
+                />
+                <small>Sin puntos ni guion.</small>
+              </div>
+
+              <div class="admin-field">
+                <label for="empresa-razon">Razón social *</label>
+                <input
+                  id="empresa-razon"
+                  name="empresaRazon"
+                  type="text"
+                  maxlength="100"
+                />
+              </div>
+
+              <div class="admin-field admin-field-full">
+                <label for="empresa-direccion">
+                  Dirección de la empresa *
+                </label>
+                <textarea
+                  id="empresa-direccion"
+                  name="empresaDireccion"
+                  maxlength="300"
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Bloque 4: datos de acceso comunes a todos los perfiles. -->
+          <fieldset class="registro-bloque">
+            <legend>Datos de acceso</legend>
+            <div class="admin-form-grid">
+              <div class="admin-field">
+                <label for="user-phone">Teléfono</label>
+                <input
+                  id="user-phone"
+                  name="telefono"
+                  type="tel"
+                  maxlength="15"
+                  placeholder="+56912345678"
+                />
+                <small>Opcional, para coordinar despachos.</small>
+              </div>
+
+              <div class="admin-field">
+                <label for="user-email">Correo *</label>
+                <input
+                  id="user-email"
+                  name="correo"
+                  type="email"
+                  maxlength="100"
+                  required
+                />
+              </div>
+
+              <div class="admin-field">
+                <label for="register-password">Contraseña *</label>
+                <input
+                  id="register-password"
+                  name="clave"
+                  type="password"
+                  minlength="4"
+                  maxlength="10"
+                  required
+                  autocomplete="new-password"
+                />
+              </div>
+
+              <div class="admin-field">
+                <label for="register-confirmation">
+                  Confirmar contraseña *
+                </label>
+                <input
+                  id="register-confirmation"
+                  name="confirmacion"
+                  type="password"
+                  minlength="4"
+                  maxlength="10"
+                  required
+                  autocomplete="new-password"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="admin-form-footer">
+            <button class="admin-button" type="submit">Registrarme</button>
+            <a
+              class="admin-button admin-button-secondary"
+              href="inicio-sesion.html"
+              >Iniciar sesión</a
+            >
+          </div>
+          <p id="register-message" class="form-message" role="status" hidden></p>
+        </form>
+      </section>
+      <p
+        id="cart-status"
+        class="content-section form-message"
+        role="status"
+        hidden
+      ></p>
+    </main>
+    <footer class="site-footer">
+      <strong>Ferretería Los Maestros</strong>
+      <span>La Serena, Región de Coquimbo</span>
+      <span>Lun a Vie 8:30-19:00 · Sáb 9:00-14:00</span>
+    </footer>
+    <!-- Herramientas compartidas primero; comportamiento de esta página al final. -->
+    <script src="../js/compartido/utilidades.js"></script>
+    <script src="../js/compartido/almacenamiento.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/validaciones/comunes.js"></script>
+    <script src="../js/compartido/regiones.js"></script>
+    <script src="../js/validaciones/usuarios.js"></script>
+    <script src="../js/tienda/registro.js"></script>
+  </body>
+</html>
