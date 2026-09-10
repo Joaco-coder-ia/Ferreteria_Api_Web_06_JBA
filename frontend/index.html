@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Inicio de Ferretería Los Maestros" />
+    <title>Inicio | Ferretería Los Maestros</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-raiz="">
+    <!-- Los enlaces conectan páginas independientes sin cambiar vistas con JavaScript. -->
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Volver al inicio">
+        <img
+          class="brand-logo"
+          src="assets/logo/logo-losMaestros.png"
+          alt="Ferretería Los Maestros"
+        />
+        <span
+          ><strong>Los Maestros</strong
+          ><small>Ferretería y construcción</small></span
+        >
+      </a>
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰ <span>Menú</span>
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="tienda/catalogo.html">Catálogo</a>
+        <a href="tienda/carrito.html">Carrito <span id="cart-count">0</span></a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#blog">Blog</a>
+        <a id="nav-contacto" href="tienda/contacto.html">Contacto</a>
+        <a id="nav-cuenta" href="tienda/cuenta.html" hidden>Mi cuenta</a>
+        <a id="nav-ingreso" href="tienda/inicio-sesion.html">Ingreso</a>
+        <a id="nav-admin" href="admin/index.html" hidden>Administración</a>
+        <button id="nav-salir" class="nav-salir" type="button" data-logout hidden>
+          Cerrar sesión
+        </button>
+      </nav>
+    </header>
+    <main id="app" tabindex="-1">
+      <!-- Vista de inicio. -->
+      <section id="view-inicio" class="view hero-view hero-centrado">
+        <div class="hero-copy">
+
+          <h1>Ferretería Los Maestros</h1>
+          <h2>
+            <span>Materiales listos</span>
+            <span>cuando la obra los necesita.</span>
+          </h2>
+
+          <p>
+            prepara tu pedido y elige retiro en tienda o
+            despacho.
+          </p>
+
+          <div class="button-row">
+            <a class="button button-primary" href="tienda/catalogo.html">Ver catálogo</a>
+          </div>
+        </div>
+      </section>
+      <!-- Nueva sección: Nosotros -->
+      <section id="nosotros" class="content-section" data-home-only>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="eyebrow">Quiénes somos</p>
+            <h2>22 años junto a quienes construyen La Serena</h2>
+
+            <p>
+              Ferretería Los Maestros nació como un negocio familiar y hoy sigue
+              siendo atendido por la misma familia que lo fundó, con tres
+              generaciones atendiendo el mismo local en La Serena. Conocemos
+              cada producto de nuestro catálogo porque los usamos, los
+              recomendamos y los vendemos a diario a maestros, contratistas y
+              vecinos de la zona.
+            </p>
+
+            <p>
+              Por eso no solo vendemos materiales: te ofrecemos una asesoría
+              real, ayudándote a elegir el producto correcto para tu proyecto
+              antes de que lo compres. Y si no puedes pasar por la tienda,
+              coordinamos el despacho directo a tu obra para que no pierdas
+              tiempo yendo a buscarlo.
+            </p>
+          </div>
+
+          <!--
+            Espacio reservado para una fotografía de la ferretería.
+            Reemplazar el contenido de este div por una etiqueta img
+            cuando exista la foto definitiva.
+          -->
+          <div class="about-image">
+            <img src="assets/img/productos/img_portada/ferreteria.png" alt="Fachada de Ferretería Los Maestros" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Nueva sección: Blog -->
+      <section id="blog" class="content-section" data-home-only>
+        <div class="section-heading">
+          <p class="eyebrow">Novedades y consejos</p>
+          <h2>Consejos prácticos para tu próxima obra</h2>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Noticia principal: ocupa todo el ancho en pantallas grandes. -->
+          <article class="blog-post blog-post-featured">
+            <img src="assets/img/productos/img_portada/barra_aceros.png" alt="Barras de acero para construcción apiladas" />
+            <span class="category">Materiales &amp; Estructuras</span>
+            <h3>¿Es confiable el acero importado? Lo que debes saber tras el fin de la producción nacional</h3>
+            <p>
+              Con el cierre de las principales acerías locales, el mercado chileno
+              hoy se abastece mayoritariamente de fierro importado, principalmente
+              de China. Te explicamos cómo verificar que el acero que compras
+              cumpla con la norma NCh204 para garantizar la seguridad de tus obras
+              y cierres perimetrales.
+            </p>
+            <a class="text-button" href="#">Leer más →</a>
+          </article>
+
+          <article class="blog-post">
+            <img src="assets/img/productos/img_portada/muro_pintura.png" alt="Pared de concreto lista para pintar" />
+            <span class="category">Consejos de Pintura</span>
+            <h3>Humedad y pintura: cómo preparar muros de concreto en temporadas frías</h3>
+            <p>
+              Pintar sobre una superficie fría o húmeda destruye cualquier acabado
+              en pocos meses. Descubre el paso a paso para aplicar selladores de
+              superficie, la importancia del medidor de humedad y qué tipo de
+              esmalte al agua o óleo conviene usar según el exterior de tu casa.
+            </p>
+            <a class="text-button" href="#">Leer más →</a>
+          </article>
+
+          <article class="blog-post">
+            <img src="assets/img/productos/img_portada/talabro_trabajo.png" alt="Taladro inalámbrico sobre una mesa de trabajo" />
+            <span class="category">Herramientas</span>
+            <h3>¿Taladro inalámbrico o con cable? Cómo elegir la herramienta correcta para tu taller</h3>
+            <p>
+              No siempre la opción inalámbrica es la mejor para todo tipo de
+              trabajo. Analizamos el torque, el peso y la autonomía de las
+              baterías de litio frente a la potencia continua del cable para que
+              no gastes de más en tu próxima compra.
+            </p>
+            <a class="text-button" href="#">Leer más →</a>
+          </article>
+        </div>
+      </section>
+
+      <p id="home-status" role="status" hidden></p>
+      <p
+        id="cart-status"
+        class="content-section form-message"
+        role="status"
+        hidden
+      ></p>
+    </main>
+    <footer class="site-footer">
+      <strong>Ferretería Los Maestros</strong>
+      <span>La Serena, Región de Coquimbo</span>
+      <span>Lun a Vie 8:30-19:00 · Sáb 9:00-14:00</span>
+    </footer>
+    <!-- Herramientas compartidas primero; comportamiento de esta página al final. -->
+    <script src="js/compartido/utilidades.js"></script>
+    <script src="js/compartido/almacenamiento.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/validaciones/comunes.js"></script>
+    <script src="js/tienda/catalogo.js"></script>
+  </body>
+</html>
