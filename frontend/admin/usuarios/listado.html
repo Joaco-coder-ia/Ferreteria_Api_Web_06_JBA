@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Listado administrativo de usuarios" />
+    <title>Usuarios | Administración Los Maestros</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../../css/styles.css" />
+  </head>
+
+  <body
+    class="admin-body"
+    data-raiz="../../"
+    data-pagina="admin-usuarios-listado"
+  >
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <a
+          class="admin-brand"
+          href="../index.html"
+          data-solo-admin
+          aria-label="Ir al inicio del panel"
+        >
+          <span class="admin-brand-mark" aria-hidden="true">⌂</span>
+          <span
+            ><strong>Los Maestros</strong><small>Administración</small></span
+          >
+        </a>
+        <p class="admin-context">Control de catálogo y usuarios</p>
+        <nav class="admin-nav" aria-label="Navegación administrativa">
+          <a href="../index.html" data-solo-admin>Resumen</a>
+          <a href="../productos/listado.html">Productos</a>
+          <a href="listado.html" data-solo-admin aria-current="page"
+            >Usuarios</a
+          >
+        </nav>
+        <div class="admin-sidebar-footer">
+          <a href="../../index.html">Volver a la tienda</a>
+          <button class="text-button" type="button" data-logout>
+            Cerrar sesión
+          </button>
+        </div>
+      </aside>
+
+      <div class="admin-workspace">
+        <header class="admin-topbar">
+          <p>Perfiles · usuarios locales</p>
+          <div class="admin-user-chip">
+            <span aria-hidden="true">A</span>Administrador demo
+          </div>
+        </header>
+
+        <main class="admin-main">
+          <p id="admin-load-error" class="form-error" role="alert" hidden></p>
+          <header class="admin-page-heading">
+            <div>
+              <p class="admin-kicker">Personas y accesos</p>
+              <h1>Usuarios</h1>
+              <p>
+                Listado preliminar de los perfiles que participarán en el
+                sistema.
+              </p>
+            </div>
+            <a
+              class="admin-button admin-button-warning"
+              href="nuevo.html"
+              data-solo-admin
+              >Nuevo usuario</a
+            >
+          </header>
+
+          <section class="admin-panel" aria-labelledby="titulo-tabla-usuarios">
+            <div class="admin-panel-header">
+              <div>
+                <h2 id="titulo-tabla-usuarios">Usuarios registrados</h2>
+                <p id="admin-users-count">Cargando perfiles de demostración…</p>
+              </div>
+            </div>
+
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th scope="col">RUN</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Perfil</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users-body">
+                  <tr>
+                    <td colspan="6">Cargando usuarios…</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="../../js/compartido/utilidades.js"></script>
+    <script src="../../js/compartido/almacenamiento.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/validaciones/comunes.js"></script>
+    <script src="../../js/admin/admin.js"></script>
+    <script src="../../js/compartido/regiones.js"></script>
+    <script src="../../js/validaciones/usuarios.js"></script>
+    <script src="../../js/admin/usuarios.js"></script>
+  </body>
+</html>
