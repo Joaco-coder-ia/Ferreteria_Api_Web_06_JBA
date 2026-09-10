@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Carrito de Ferretería Los Maestros" />
+    <title>Carrito | Ferretería Los Maestros</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body data-raiz="../">
+    <!-- Los enlaces conectan páginas independientes sin cambiar vistas con JavaScript. -->
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Volver al inicio">
+        <img
+          class="brand-logo"
+          src="../assets/logo/logo-losMaestros.png"
+          alt="Ferretería Los Maestros"
+        />
+        <span
+          ><strong>Los Maestros</strong
+          ><small>Ferretería y construcción</small></span
+        >
+      </a>
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰ <span>Menú</span>
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../tienda/catalogo.html">Catálogo</a>
+        <a href="../tienda/carrito.html" aria-current="page"
+          >Carrito <span id="cart-count">0</span></a
+        >
+        <a href="../index.html#nosotros">Nosotros</a>
+        <a href="../index.html#blog">Blog</a>
+        <a id="nav-contacto" href="../tienda/contacto.html">Contacto</a>
+        <a id="nav-cuenta" href="../tienda/cuenta.html" hidden>Mi cuenta</a>
+        <a id="nav-ingreso" href="../tienda/inicio-sesion.html">Ingreso</a>
+        <a id="nav-admin" href="../admin/index.html" hidden>Administración</a>
+        <button id="nav-salir" class="nav-salir" type="button" data-logout hidden>
+          Cerrar sesión
+        </button>
+      </nav>
+    </header>
+    <main id="app" tabindex="-1">
+      <section id="view-carrito" class="view content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Solicitud de productos</p>
+          <h1>Tu carrito</h1>
+        </div>
+        <div id="cart-content"></div>
+      </section>
+      <p
+        id="cart-status"
+        class="content-section form-message"
+        role="status"
+        hidden
+      ></p>
+    </main>
+    <footer class="site-footer">
+      <strong>Ferretería Los Maestros</strong>
+      <span>La Serena, Región de Coquimbo</span>
+      <span>Lun a Vie 8:30-19:00 · Sáb 9:00-14:00</span>
+    </footer>
+    <!-- Herramientas compartidas primero; comportamiento de esta página al final. -->
+    <script src="../js/compartido/utilidades.js"></script>
+    <script src="../js/compartido/almacenamiento.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/validaciones/comunes.js"></script>
+    <script src="../js/tienda/carrito.js"></script>
+    <script src="../js/tienda/carrito-panel.js"></script>
+  </body>
+</html>
