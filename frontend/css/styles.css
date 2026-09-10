@@ -17,12 +17,10 @@
   background: var(--cream);
 }
 
-
 /* Esto hace que padding y border formen parte del tamano total. */
 * {
   box-sizing: border-box;
 }
-
 
 /* Quitamos el margen automatico y dejamos un ancho minimo para celulares. */
 body {
@@ -32,12 +30,10 @@ body {
   background: var(--cream);
 }
 
-
 /* Los enlaces mantienen el color de la seccion donde se encuentran. */
 a {
   color: inherit;
 }
-
 
 /* Dejamos una señal visible cuando se navega ocupando el teclado. */
 :focus-visible {
@@ -45,17 +41,13 @@ a {
   outline-offset: 3px;
 }
 
-
 /* JavaScript utiliza hidden para decidir que vista corresponde mostrar. */
 .view[hidden],
 [data-home-only][hidden] {
   display: none;
 }
 
-
-
 /* Cabecera y navegacion principal                                             */
-
 
 /* La cabecera queda arriba para que el menu siga disponible al bajar. */
 .site-header {
@@ -74,7 +66,6 @@ a {
   color: #fff;
 }
 
-
 /* La marca junta el icono con el nombre de la ferreteria. */
 .brand {
   display: flex;
@@ -82,7 +73,6 @@ a {
   gap: 10px;
   text-decoration: none;
 }
-
 
 /* Con grid centramos el simbolo de la casa dentro del cuadrado. */
 .brand-mark {
@@ -98,13 +88,11 @@ a {
   font-size: 27px;
 }
 
-
 /* Separamos el nombre principal de su texto secundario. */
 .brand strong,
 .brand small {
   display: block;
 }
-
 
 /* El texto secundario se deja mas chico para crear jerarquia. */
 .brand small {
@@ -112,7 +100,6 @@ a {
   color: #cbd9d2;
   font-size: 11px;
 }
-
 
 /* En celulares el menu comienza oculto y se abre con JavaScript. */
 .main-nav {
@@ -128,13 +115,11 @@ a {
   border-top: 1px solid #416258;
 }
 
-
 /* app.js agrega is-open cuando apretamos el boton del menu movil. */
 .main-nav.is-open {
   display: grid;
   gap: 14px;
 }
-
 
 /* Quitamos el subrayado para que los enlaces se vean como opciones del menu. */
 .main-nav a {
@@ -142,13 +127,11 @@ a {
   font-size: 14px;
 }
 
-
 /* Esta linea indica visualmente la pagina donde estamos parados. */
-.main-nav a[aria-current='page'] {
+.main-nav a[aria-current="page"] {
   color: var(--yellow);
   font-weight: 700;
 }
-
 
 /* Este boton solamente se necesita mientras el menu completo no cabe. */
 .menu-button {
@@ -162,10 +145,7 @@ a {
   cursor: pointer;
 }
 
-
-
 /* Inicio y presentacion principal                                             */
-
 
 /* El inicio ocupa un fondo oscuro para separar la presentacion del contenido. */
 .hero-view {
@@ -174,14 +154,9 @@ a {
 
   padding: 72px 5% 68px;
 
-  background: linear-gradient(
-    115deg,
-    var(--deep),
-    #205d50
-  );
+  background: linear-gradient(115deg, var(--deep), #205d50);
   color: #fff;
 }
-
 
 /* Los textos eyebrow funcionan como una etiqueta antes de cada titulo. */
 .eyebrow {
@@ -192,12 +167,10 @@ a {
   text-transform: uppercase;
 }
 
-
 /* Dentro del bloque oscuro usamos amarillo para tener mejor contraste. */
 .hero-view .eyebrow {
   color: var(--yellow);
 }
-
 
 /* Todos los titulos ocupan una altura parecida y un margen consistente. */
 h1,
@@ -207,13 +180,11 @@ h3 {
   line-height: 1.05;
 }
 
-
 /* clamp adapta el titulo sin dejar que quede demasiado chico o gigante. */
 .hero-copy h1 {
   max-width: 850px;
   font-size: clamp(40px, 10vw, 76px);
 }
-
 
 /* Limitamos el ancho del parrafo para que sea mas comodo leerlo. */
 .hero-copy > p:not(.eyebrow) {
@@ -223,7 +194,6 @@ h3 {
   line-height: 1.55;
 }
 
-
 /* Esta fila acomoda juntos los botones principales y permite que bajen de linea. */
 .button-row {
   display: flex;
@@ -231,7 +201,6 @@ h3 {
   gap: 10px;
   margin-top: 25px;
 }
-
 
 /* Creamos una base que sirve para todos los botones grandes. */
 .button {
@@ -247,13 +216,11 @@ h3 {
   cursor: pointer;
 }
 
-
 /* El boton amarillo representa la accion principal. */
 .button-primary {
   background: var(--yellow);
   color: var(--deep);
 }
-
 
 /* Este segundo boton se usa sobre fondos oscuros. */
 .button-outline {
@@ -262,26 +229,22 @@ h3 {
   color: #fff;
 }
 
-
 /* Dentro de Mi cuenta cambiamos el color porque la tarjeta tiene fondo claro. */
 .account-button {
   border-color: var(--green);
   color: var(--green);
 }
 
-
 /* full hace que el boton ocupe todo el espacio de su contenedor. */
 .full {
   width: 100%;
 }
-
 
 /* Los botones desactivados indican que un producto no se puede agregar. */
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
 
 /* Esta tarjeta resume la cantidad de productos, categorias y stock. */
 .hero-summary {
@@ -294,12 +257,10 @@ button:disabled {
   background: #ffffff16;
 }
 
-
 /* Quitamos el margen superior del primer texto del resumen. */
 .hero-summary p {
   margin: 0 0 15px;
 }
-
 
 /* El total se muestra grande porque es el dato mas importante. */
 .hero-summary > strong {
@@ -307,14 +268,12 @@ button:disabled {
   font-size: 72px;
 }
 
-
 /* El texto que acompaña al total usa un tono mas suave. */
 .hero-summary > span {
   display: block;
   color: #d6e2dc;
   line-height: 1.4;
 }
-
 
 /* Dividimos las otras estadisticas en dos columnas iguales. */
 .summary-grid {
@@ -327,19 +286,16 @@ button:disabled {
   border-top: 1px solid #628276;
 }
 
-
 /* Cada numero y su etiqueta ocupan su propia linea. */
 .summary-grid b,
 .summary-grid small {
   display: block;
 }
 
-
 /* Damos mas importancia visual a los numeros. */
 .summary-grid b {
   font-size: 24px;
 }
-
 
 /* Las etiquetas se ven mas suaves que los numeros. */
 .summary-grid small {
@@ -347,9 +303,7 @@ button:disabled {
   color: #c8d8d0;
 }
 
-
 /* Secciones y tarjetas generales                                             */
-
 
 /* Todas las secciones mantienen el mismo ancho y espacio interior. */
 .content-section {
@@ -358,12 +312,10 @@ button:disabled {
   padding: 58px 5%;
 }
 
-
 /* La introduccion puede ocupar todo el ancho del fondo. */
 .intro-section {
   max-width: none;
 }
-
 
 /* Este titulo tambien cambia suavemente segun el espacio disponible. */
 .intro-section h2 {
@@ -371,14 +323,12 @@ button:disabled {
   font-size: clamp(30px, 5vw, 48px);
 }
 
-
 /* Las tres caracteristicas comienzan en una columna para celulares. */
 .feature-grid {
   display: grid;
   gap: 14px;
   margin-top: 28px;
 }
-
 
 /* Reutilizamos la misma base para las tarjetas de todo el sitio. */
 .feature-grid article,
@@ -394,12 +344,10 @@ button:disabled {
   border-radius: 14px;
 }
 
-
 /* Los numeros de las caracteristicas ocupan el color coral. */
 .feature-grid b {
   color: var(--coral);
 }
-
 
 /* Usamos un color secundario para los textos descriptivos. */
 .feature-grid p,
@@ -411,27 +359,22 @@ button:disabled {
   line-height: 1.5;
 }
 
-
 /* Dejamos espacio entre el encabezado y el contenido de cada seccion. */
 .section-heading {
   margin-bottom: 28px;
 }
-
 
 /* El titulo interior crece dependiendo de la pantalla. */
 .section-heading h1 {
   font-size: clamp(34px, 6vw, 62px);
 }
 
-
 /* El ultimo parrafo del encabezado funciona como explicacion secundaria. */
 .section-heading > p:last-child {
   color: var(--muted);
 }
 
-
 /* Formularios, buscador y filtros                                             */
-
 
 /* Los filtros se ordenan primero hacia abajo para que entren en un celular. */
 .filter-bar {
@@ -445,7 +388,6 @@ button:disabled {
   border-radius: 14px;
 }
 
-
 /* Las etiquetas se dejan arriba de sus controles para entender cada campo. */
 .filter-bar label,
 .auth-card label {
@@ -454,7 +396,6 @@ button:disabled {
   font-size: 13px;
   font-weight: 700;
 }
-
 
 /* Todos los campos comparten el mismo borde, espacio y tipo de letra. */
 .filter-bar input,
@@ -473,13 +414,11 @@ button:disabled {
   font: inherit;
 }
 
-
 /* El comentario puede crecer hacia abajo pero no romper el ancho del formulario. */
 .auth-card textarea {
   min-height: 130px;
   resize: vertical;
 }
-
 
 /* Acomodamos el checkbox al lado de su explicacion. */
 .check-label {
@@ -489,16 +428,12 @@ button:disabled {
   gap: 8px;
 }
 
-
 /* Evitamos que el checkbox tome el ancho completo de los otros controles. */
 .check-label input {
   width: auto;
 }
 
-
-
 /* Catalogo y detalle de productos                                             */
-
 
 /* auto-fit crea las columnas que caben y minmax evita tarjetas muy angostas. */
 .product-grid {
@@ -507,14 +442,12 @@ button:disabled {
   gap: 15px;
 }
 
-
 /* Usamos flex para mantener los botones alineados aunque cambie el nombre. */
 .product-card {
   display: flex;
   flex-direction: column;
   min-height: 245px;
 }
-
 
 /* La categoria aparece como una etiqueta pequeña sobre el nombre. */
 .product-card .category,
@@ -525,13 +458,11 @@ button:disabled {
   text-transform: uppercase;
 }
 
-
 /* Damos un poco de separacion al nombre de cada producto. */
 .product-card h2 {
   margin-top: 10px;
   font-size: 20px;
 }
-
 
 /* margin-top auto empuja el precio hacia la parte baja de la tarjeta. */
 .product-card .price {
@@ -541,12 +472,10 @@ button:disabled {
   font-weight: 700;
 }
 
-
 /* El stock es informacion secundaria y por eso ocupa menos tamano. */
 .product-card .stock {
   font-size: 13px;
 }
-
 
 /* Los botones chicos se usan en las tarjetas del catalogo. */
 .small-button {
@@ -561,7 +490,6 @@ button:disabled {
   font-weight: 700;
   cursor: pointer;
 }
-
 
 /* Estos botones parecen enlaces porque se ocupan para volver o cambiar de vista. */
 .text-button,
@@ -578,12 +506,10 @@ button:disabled {
   cursor: pointer;
 }
 
-
 /* Las vistas mas cortas no necesitan ocupar todo el ancho del catalogo. */
 .narrow {
   max-width: 700px;
 }
-
 
 /* El detalle separa sus datos con una grilla sencilla. */
 .detail-card {
@@ -591,12 +517,10 @@ button:disabled {
   gap: 18px;
 }
 
-
 /* El nombre se agranda porque es el contenido principal del detalle. */
 .detail-card h1 {
   font-size: 40px;
 }
-
 
 /* El precio del detalle debe destacar entre el resto de los datos. */
 .detail-price {
@@ -604,16 +528,13 @@ button:disabled {
   font-weight: 700;
 }
 
-
 /* Carrito y resumen del pedido                                                */
-
 
 /* En pantallas chicas el resumen se muestra debajo de los productos. */
 .cart-layout {
   display: grid;
   gap: 20px;
 }
-
 
 /* Cada fila junta la informacion con su cantidad y subtotal. */
 .cart-item {
@@ -624,12 +545,10 @@ button:disabled {
   margin-bottom: 12px;
 }
 
-
 /* El nombre del producto no necesita el tamano de un titulo principal. */
 .cart-item h2 {
   font-size: 19px;
 }
-
 
 /* Las acciones se ordenan y dejan el subtotal sin cortes de linea. */
 .cart-item-actions {
@@ -638,30 +557,25 @@ button:disabled {
   gap: 9px;
 }
 
-
 /* Evitamos que el valor del subtotal se separe en dos lineas. */
 .cart-item strong {
   white-space: nowrap;
 }
-
 
 /* La cantidad solo necesita espacio para unos pocos numeros. */
 .quantity-input {
   max-width: 75px;
 }
 
-
 /* El resumen mantiene solamente la altura que necesita su contenido. */
 .summary-card {
   height: max-content;
 }
 
-
 /* Bajamos el tamano del titulo dentro del resumen. */
 .summary-card h2 {
   font-size: 25px;
 }
-
 
 /* Separamos el texto Total de su valor usando los extremos de la fila. */
 .summary-total {
@@ -674,7 +588,6 @@ button:disabled {
   font-size: 22px;
 }
 
-
 /* Quitamos el estilo normal del fieldset para integrarlo en la tarjeta. */
 .summary-card fieldset {
   display: grid;
@@ -685,22 +598,18 @@ button:disabled {
   border: 0;
 }
 
-
 /* Las alternativas de entrega se dejan compactas. */
 .summary-card label {
   font-size: 14px;
 }
 
-
 /* Acceso, registro, contacto y cuenta                                         */
-
 
 /* Centramos los formularios y evitamos que se vuelvan demasiado anchos. */
 .auth-card {
   max-width: 540px;
   margin: auto;
 }
-
 
 /* Los tres usuarios de prueba se muestran en columnas iguales. */
 .demo-users {
@@ -709,7 +618,6 @@ button:disabled {
   gap: 6px;
   margin: 20px 0;
 }
-
 
 /* Estos botones tienen menos importancia que el boton Entrar. */
 .demo-users button {
@@ -725,13 +633,11 @@ button:disabled {
   cursor: pointer;
 }
 
-
 /* validaciones.js agrega esta clase al perfil demo que elegimos. */
 .demo-users button.is-selected {
   background: var(--green);
   color: #fff;
 }
-
 
 /* Dejamos un espacio parejo entre todos los campos del formulario. */
 .auth-card form,
@@ -740,13 +646,11 @@ form.auth-card {
   gap: 8px;
 }
 
-
 /* Las ayudas explican datos de demostracion sin llamar tanto la atencion. */
 .form-help {
   color: var(--muted);
   font-size: 13px;
 }
-
 
 /* Los errores ocupan rojo para diferenciarlos de un resultado correcto. */
 .form-error,
@@ -754,7 +658,6 @@ form.auth-card {
   color: var(--error);
   font-size: 13px;
 }
-
 
 /* Los mensajes correctos aparecen dentro de una caja verde clara. */
 .form-message {
@@ -765,12 +668,10 @@ form.auth-card {
   color: #1b6546;
 }
 
-
 /* Al existir un error cambiamos tambien el fondo del mensaje. */
 .form-message.is-error {
   background: #fbe9e6;
 }
-
 
 /* Las tarjetas de la cuenta comienzan una debajo de la otra. */
 .account-grid {
@@ -778,12 +679,10 @@ form.auth-card {
   gap: 16px;
 }
 
-
 /* Los nombres dentro de la cuenta usan un titulo mediano. */
 .account-card h2 {
   font-size: 20px;
 }
-
 
 /* Esta caja se ocupa cuando todavia no tenemos productos o resultados. */
 .empty {
@@ -796,9 +695,7 @@ form.auth-card {
   text-align: center;
 }
 
-
 /* Pie de pagina                                                               */
-
 
 /* El footer cierra todas las paginas con la informacion general. */
 .site-footer {
@@ -812,16 +709,13 @@ form.auth-card {
   font-size: 13px;
 }
 
-
 /* El nombre de la ferreteria destaca sobre los otros datos. */
 .site-footer strong {
   color: #fff;
   font-size: 17px;
 }
 
-
 /* Diseño adaptable                                                            */
-
 
 /* Desde 600px usamos columnas porque ya tenemos mas espacio disponible. */
 @media (min-width: 600px) {
@@ -847,7 +741,6 @@ form.auth-card {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
 /* Desde 900px cambiamos el boton movil por la navegacion completa. */
 @media (min-width: 900px) {
@@ -877,7 +770,6 @@ form.auth-card {
   }
 }
 
-
 /* En celulares angostos dejamos las filas del carrito una debajo de otra. */
 @media (max-width: 480px) {
   .cart-item {
@@ -895,9 +787,7 @@ form.auth-card {
   }
 }
 
-
 /* Panel administrativo                                                       */
-
 
 /* El panel mantiene la identidad de la tienda, con una lectura mas operativa. */
 .admin-body {
@@ -905,11 +795,9 @@ form.auth-card {
   background: #e8ede8;
 }
 
-
 .admin-shell {
   min-height: 100vh;
 }
-
 
 .admin-sidebar {
   display: flex;
@@ -920,14 +808,12 @@ form.auth-card {
   color: #fff;
 }
 
-
 .admin-brand {
   display: flex;
   align-items: center;
   gap: 12px;
   text-decoration: none;
 }
-
 
 .admin-brand-mark {
   display: grid;
@@ -940,19 +826,16 @@ form.auth-card {
   font-size: 24px;
 }
 
-
 .admin-brand strong,
 .admin-brand small {
   display: block;
 }
-
 
 .admin-brand small {
   margin-top: 2px;
   color: #b9cbc4;
   font-size: 12px;
 }
-
 
 .admin-context {
   margin: 0;
@@ -962,12 +845,10 @@ form.auth-card {
   font-size: 13px;
 }
 
-
 .admin-nav {
   display: grid;
   gap: 7px;
 }
-
 
 .admin-nav a {
   display: flex;
@@ -979,14 +860,12 @@ form.auth-card {
   text-decoration: none;
 }
 
-
 .admin-nav a:hover,
 .admin-nav a[aria-current="page"] {
   border-left-color: var(--yellow);
   background: #19483f;
   color: #fff;
 }
-
 
 .admin-sidebar-footer {
   display: grid;
@@ -998,21 +877,17 @@ form.auth-card {
   font-size: 12px;
 }
 
-
 .admin-sidebar-footer a {
   color: #fff;
 }
-
 
 .admin-sidebar-footer p {
   margin: 0;
 }
 
-
 .admin-workspace {
   min-width: 0;
 }
-
 
 .admin-topbar {
   display: flex;
@@ -1025,13 +900,11 @@ form.auth-card {
   background: #f7f9f6;
 }
 
-
 .admin-topbar p {
   margin: 0;
   color: var(--muted);
   font-size: 13px;
 }
-
 
 .admin-user-chip {
   display: flex;
@@ -1040,7 +913,6 @@ form.auth-card {
   font-size: 13px;
   font-weight: 700;
 }
-
 
 .admin-user-chip span {
   display: grid;
@@ -1052,7 +924,6 @@ form.auth-card {
   color: var(--green);
 }
 
-
 .admin-main {
   display: grid;
   gap: 24px;
@@ -1061,14 +932,12 @@ form.auth-card {
   padding: 36px 5% 56px;
 }
 
-
 .admin-page-heading {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 18px;
 }
-
 
 .admin-page-heading h1 {
   margin: 0 0 7px;
@@ -1077,13 +946,11 @@ form.auth-card {
   line-height: 1;
 }
 
-
 .admin-page-heading p {
   max-width: 650px;
   margin: 0;
   color: var(--muted);
 }
-
 
 .admin-kicker {
   margin: 0 0 10px;
@@ -1098,14 +965,12 @@ form.auth-card {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 
-
 .admin-metric {
   min-height: 142px;
   padding: 20px;
   border-top: 5px solid var(--green);
   background: var(--paper);
 }
-
 
 .admin-metric strong {
   display: block;
@@ -1114,20 +979,17 @@ form.auth-card {
   font-size: 38px;
 }
 
-
 .admin-metric span,
 .admin-metric small {
   display: block;
   color: var(--muted);
 }
 
-
 .admin-panel {
   padding: 22px;
   border: 1px solid #c8d0ca;
   background: var(--paper);
 }
-
 
 .admin-panel-header {
   display: flex;
@@ -1139,25 +1001,21 @@ form.auth-card {
   border-bottom: 1px solid var(--line);
 }
 
-
 .admin-panel-header h2,
 .admin-panel-header p {
   margin: 0;
 }
-
 
 .admin-panel-header p {
   color: var(--muted);
   font-size: 13px;
 }
 
-
 .admin-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
 }
-
 
 .admin-button {
   display: inline-flex;
@@ -1175,18 +1033,15 @@ form.auth-card {
   cursor: pointer;
 }
 
-
 .admin-button:hover {
   background: var(--deep);
   border-color: var(--deep);
 }
 
-
 .admin-button-secondary {
   background: transparent;
   color: var(--green);
 }
-
 
 .admin-button-warning {
   border-color: var(--yellow);
@@ -1194,13 +1049,11 @@ form.auth-card {
   color: var(--deep);
 }
 
-
 .admin-shortcuts {
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
-
 
 .admin-shortcut {
   display: block;
@@ -1210,36 +1063,30 @@ form.auth-card {
   text-decoration: none;
 }
 
-
 .admin-shortcut strong,
 .admin-shortcut span {
   display: block;
 }
-
 
 .admin-shortcut strong {
   margin-bottom: 5px;
   color: var(--deep);
 }
 
-
 .admin-shortcut span {
   color: var(--muted);
   font-size: 13px;
 }
 
-
 .admin-table-wrap {
   overflow-x: auto;
 }
-
 
 .admin-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
 }
-
 
 .admin-table th,
 .admin-table td {
@@ -1249,24 +1096,20 @@ form.auth-card {
   vertical-align: middle;
 }
 
-
 .admin-table th {
   background: #eef2ed;
   color: var(--deep);
   font-size: 12px;
 }
 
-
 .admin-table tbody tr:hover {
   background: #faf6e8;
 }
-
 
 .admin-table a {
   color: var(--green);
   font-weight: 700;
 }
-
 
 .admin-badge {
   display: inline-block;
@@ -1278,18 +1121,15 @@ form.auth-card {
   font-weight: 700;
 }
 
-
 .admin-badge-warning {
   background: #fff0bd;
   color: #6c5410;
 }
 
-
 .admin-detail-grid {
   display: grid;
   gap: 22px;
 }
-
 
 .admin-product-visual {
   display: grid;
@@ -1299,18 +1139,15 @@ form.auth-card {
   background: #eef2ed;
 }
 
-
 .admin-product-visual img {
   width: min(360px, 100%);
   max-height: 280px;
   object-fit: contain;
 }
 
-
 .admin-details {
   margin: 0;
 }
-
 
 .admin-details div {
   display: grid;
@@ -1320,11 +1157,9 @@ form.auth-card {
   border-bottom: 1px solid var(--line);
 }
 
-
 .admin-details dt {
   color: var(--muted);
 }
-
 
 .admin-details dd {
   margin: 0;
@@ -1332,24 +1167,20 @@ form.auth-card {
   font-weight: 700;
 }
 
-
 .admin-form {
   display: grid;
   gap: 20px;
 }
-
 
 .admin-form-grid {
   display: grid;
   gap: 18px;
 }
 
-
 .admin-field {
   display: grid;
   gap: 7px;
 }
-
 
 .admin-field label,
 .admin-field legend {
@@ -1357,7 +1188,6 @@ form.auth-card {
   font-size: 14px;
   font-weight: 700;
 }
-
 
 .admin-field input,
 .admin-field select,
@@ -1372,36 +1202,30 @@ form.auth-card {
   font: inherit;
 }
 
-
 .admin-field textarea {
   min-height: 120px;
   resize: vertical;
 }
 
-
 .admin-field small {
   color: var(--muted);
 }
-
 
 .admin-field .is-invalid {
   border-color: #b42318;
   box-shadow: 0 0 0 3px rgb(180 35 24 / 12%);
 }
 
-
 .admin-field .admin-field-error {
   color: #b42318;
   font-weight: 700;
 }
-
 
 .admin-fieldset {
   margin: 0;
   padding: 0;
   border: 0;
 }
-
 
 .admin-form-footer {
   display: flex;
@@ -1410,7 +1234,6 @@ form.auth-card {
   padding-top: 18px;
   border-top: 1px solid var(--line);
 }
-
 
 .admin-form-status {
   margin: 0;
@@ -1421,24 +1244,20 @@ form.auth-card {
   font-weight: 700;
 }
 
-
 .admin-form-status-success {
   border-left-color: var(--green);
   background: #eaf4ef;
   color: var(--green);
 }
 
-
 .admin-button:disabled {
   cursor: not-allowed;
   opacity: 0.55;
 }
 
-
 .admin-empty-state {
   grid-column: 1 / -1;
 }
-
 
 @media (min-width: 720px) {
   .admin-form-grid {
@@ -1454,7 +1273,6 @@ form.auth-card {
   }
 }
 
-
 @media (min-width: 900px) {
   .admin-shell {
     display: grid;
@@ -1467,7 +1285,6 @@ form.auth-card {
     height: 100vh;
   }
 }
-
 
 @media (max-width: 899px) {
   .admin-sidebar {
@@ -1502,7 +1319,6 @@ form.auth-card {
     padding-top: 12px;
   }
 }
-
 
 @media (max-width: 620px) {
   .admin-topbar,
@@ -1570,4 +1386,829 @@ form.auth-card {
 #cart-status {
   max-width: 1100px;
   margin: 16px auto;
+}
+
+/* Espacio de foto del hero (banner principal)                                 */
+
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 260px;
+
+  background: #ffffff16;
+  border: 1px dashed #688b7e;
+  border-radius: 16px;
+
+  color: #d6e2dc;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Seccion Nosotros                                                             */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.about-text p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.about-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 320px;
+  padding: 20px;
+
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  color: var(--muted);
+  font-weight: 700;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Seccion Blog                                                                 */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.blog-post {
+  padding: 20px;
+
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.blog-post img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.blog-post .category {
+  display: inline-block;
+  margin-bottom: 8px;
+
+  color: var(--coral);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.blog-post h3 {
+  font-size: clamp(18px, 3vw, 24px);
+}
+
+.blog-post p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.blog-post-featured img {
+  height: 320px;
+}
+
+/* Para fotos que necesitan verse completas y no recortadas. */
+.blog-post img.img-alejada {
+  object-fit: contain;
+  background: #eef1ed;
+}
+
+@media (min-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-post-featured {
+    grid-column: 1 / -1;
+  }
+
+  .blog-post-featured img {
+    height: 380px;
+  }
+}
+
+/* Navegacion interna: desplazamiento suave y espacio para la cabecera fija. */
+html {
+  scroll-behavior: smooth;
+}
+
+#nosotros,
+#blog {
+  scroll-margin-top: 90px;
+}
+
+/* Portada centrada: una sola columna, sin la tarjeta lateral de resumen.      */
+.hero-centrado {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.hero-centrado .hero-copy {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* El titulo se mantiene en una linea y se achica segun el ancho disponible. */
+.hero-centrado .hero-copy h1 {
+  max-width: 100%;
+  white-space: nowrap;
+  font-size: clamp(28px, 6vw, 76px);
+}
+
+/* El subtitulo queda algo mas grande que el tamano por defecto. */
+.hero-centrado .hero-copy h2 {
+  font-size: clamp(22px, 3.2vw, 38px);
+}
+
+.hero-centrado .hero-copy > p:not(.eyebrow) {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-centrado .button-row {
+  justify-content: center;
+}
+
+/* Panel lateral del carrito                                                   */
+
+/* El panel entra desde la derecha con una transición suave. */
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+
+  display: flex;
+  flex-direction: column;
+
+  width: min(400px, 88vw);
+  height: 100vh;
+
+  background: var(--paper);
+  border-left: 1px solid var(--line);
+  box-shadow: -8px 0 24px rgba(14, 48, 43, 0.18);
+
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+}
+
+.cart-panel.is-open {
+  transform: translateX(0);
+}
+
+.cart-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-panel-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.cart-panel-close {
+  padding: 4px 10px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--ink);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* El cuerpo se desplaza solo si hay muchos productos. */
+.cart-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+
+.cart-panel-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 12px;
+  align-items: center;
+
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* La miniatura mantiene el producto visible sin deformarlo. */
+.cart-panel-thumb {
+  width: 64px;
+  height: 64px;
+
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.cart-panel-thumb-vacia {
+  display: block;
+  background: #eef1ed;
+}
+
+.cart-panel-info h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.cart-panel-info p {
+  margin: 2px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.cart-panel-remove {
+  padding: 8px 12px;
+
+  border: 1px solid var(--error);
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--error);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.cart-panel-vacio {
+  color: var(--muted);
+  text-align: center;
+  padding: 30px 0;
+}
+
+.cart-panel-footer {
+  padding: 18px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.cart-panel-footer .button {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.cart-panel-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+/* El boton de contorno dentro del panel va sobre fondo claro. */
+.cart-panel-footer .button-outline {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Controles para subir o bajar la cantidad dentro del panel. */
+.cart-panel-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.cart-qty-button {
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid var(--green);
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--green);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cart-qty-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cart-qty-valor {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Miniatura de cada producto en la página del carrito. */
+.cart-item-thumb {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.cart-item-thumb-vacia {
+  display: block;
+  background: #eef1ed;
+}
+
+/* Selector de cantidad en la ficha de detalle del producto. */
+.detail-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.detail-quantity label {
+  font-weight: 700;
+}
+
+.detail-quantity .quantity-input {
+  max-width: 80px;
+  text-align: center;
+}
+
+/* Página de contacto: formulario y datos de la tienda                          */
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Los datos de la tienda comparten el aspecto de tarjeta del resto del sitio. */
+.contacto-datos {
+  padding: 24px;
+
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.contacto-datos h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.contacto-dato {
+  margin-bottom: 18px;
+}
+
+.contacto-dato h3 {
+  margin-bottom: 6px;
+  color: var(--green);
+  font-size: 15px;
+}
+
+.contacto-dato p {
+  margin: 2px 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (min-width: 860px) {
+  .contacto-grid {
+    grid-template-columns: 1.7fr 1fr;
+  }
+}
+
+/* En contacto el formulario ocupa toda su columna, no el ancho de una tarjeta. */
+.contacto-grid .auth-card {
+  max-width: 560px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Página Mi cuenta: perfil, resumen y pedidos                                  */
+
+/* La tarjeta de pedidos ocupa el ancho completo de la grilla. */
+.account-card-ancha {
+  grid-column: 1 / -1;
+}
+
+.perfil-encabezado {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* La inicial del nombre reemplaza a una fotografia de perfil. */
+.perfil-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  background: var(--green);
+  border-radius: 50%;
+
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.perfil-encabezado h2 {
+  margin: 0;
+}
+
+.perfil-rol {
+  color: var(--coral);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.perfil-datos {
+  margin-bottom: 18px;
+}
+
+/* Cada dato separa la etiqueta del valor a lo ancho de la tarjeta. */
+.perfil-fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.perfil-fila span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.perfil-fila strong {
+  text-align: right;
+  font-size: 14px;
+}
+
+/* Los tres indicadores del resumen se reparten el ancho disponible. */
+.resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.resumen-grid div {
+  padding: 14px 8px;
+  background: var(--cream);
+  border-radius: 10px;
+}
+
+.resumen-grid b {
+  display: block;
+  color: var(--green);
+  font-size: 20px;
+}
+
+.resumen-grid small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Cada pedido del historial se separa con su propio recuadro. */
+.pedido-card {
+  padding: 16px;
+  margin-top: 14px;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.pedido-encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pedido-encabezado h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.pedido-fecha {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* La etiqueta de entrega resalta el tipo elegido en el pedido. */
+.pedido-entrega {
+  padding: 5px 11px;
+
+  background: var(--cream);
+  border-radius: 999px;
+
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pedido-lista {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pedido-lista li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+
+  padding: 5px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.pedido-cantidad {
+  font-weight: 700;
+}
+
+.pedido-total {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 520px) {
+  .resumen-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Texto explicativo dentro de las tarjetas de la cuenta. */
+.cuenta-descripcion {
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* La tabla se desplaza sola en pantallas angostas. */
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+.tabla-cuenta {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabla-cuenta th {
+  padding: 10px 8px;
+  border-bottom: 2px solid var(--line);
+  color: var(--green);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabla-cuenta td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* La última columna resalta el saldo acumulado del período. */
+.tabla-cuenta td:last-child {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Encabezado de la cuenta corriente con su indicador de estado. */
+.cuenta-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cuenta-estado {
+  padding: 5px 12px;
+
+  background: var(--cream);
+  border-radius: 999px;
+
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Un saldo por pagar se destaca en el color de alerta del sitio. */
+.cuenta-estado-pendiente {
+  background: #fdeceb;
+  color: var(--error);
+}
+
+/* En el estado de cuenta el saldo va en la última columna, no el abono. */
+.tabla-cuenta td:nth-last-child(2) {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* El boton de salir se muestra como una opcion mas de la navegacion. */
+.nav-salir {
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-salir:hover {
+  color: var(--yellow);
+}
+
+/* El rol acompaña al nombre dentro del recuadro de sesión administrativa. */
+.admin-user-rol {
+  margin-left: 6px;
+  opacity: 0.75;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* El pie queda al fondo aunque la página tenga poco contenido.               */
+
+/* La cabecera necesita posicion relativa para el menu movil desplegable. */
+body:not(.admin-body) {
+  display: flex;
+  flex-direction: column;
+}
+
+/* El contenido central crece y empuja el pie hasta el borde inferior. */
+body:not(.admin-body) > main {
+  flex: 1;
+}
+
+/* Formulario de registro por bloques                                          */
+
+/* Cada bloque agrupa un conjunto de campos relacionados. */
+.registro-bloque {
+  padding: 18px;
+  margin: 0 0 20px;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.registro-bloque[hidden] {
+  display: none;
+}
+
+/* El titulo del bloque se apoya sobre el borde superior del recuadro. */
+.registro-bloque legend {
+  padding: 0 8px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Los campos con nota debajo quedan alineados con los que no la tienen. */
+.registro-bloque .admin-form-grid {
+  align-items: start;
+}
+
+/* La direccion ocupa el ancho completo, pero con la altura de un campo. */
+.registro-bloque #user-address,
+.registro-bloque #empresa-direccion {
+  min-height: 46px;
+  height: 46px;
+  resize: vertical;
+}
+
+/* En el registro los botones finales quedan centrados bajo el formulario. */
+#register-form .admin-form-footer {
+  justify-content: center;
+}
+
+/* Detalle de artículo del blog                                                */
+
+.blog-detalle .eyebrow {
+  margin-top: 20px;
+}
+
+/* La bajada resume el articulo antes de la imagen principal. */
+.blog-detalle-bajada {
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.blog-detalle-imagen {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 28px;
+}
+
+.blog-detalle h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.blog-detalle p,
+.blog-detalle li {
+  color: var(--muted);
+  line-height: 1.65;
+  text-align: justify;
+  /* Evita las separaciones muy anchas entre palabras al justificar. */
+  hyphens: auto;
+}
+
+.blog-detalle ol,
+.blog-detalle ul {
+  padding-left: 22px;
+}
+
+.blog-detalle li {
+  margin-bottom: 10px;
+}
+
+/* El cierre invita a visitar el local y se separa del cuerpo del articulo. */
+.blog-detalle-cierre {
+  margin-top: 30px;
+  padding: 18px;
+
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
