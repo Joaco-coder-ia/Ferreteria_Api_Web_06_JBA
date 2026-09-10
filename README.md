@@ -50,8 +50,9 @@ Ferreteria_API/
     │   ├── inicio-sesion.html
     │   ├── registro.html
     │   ├── cuenta.html
-    │   ├── nosotros.html
-    │   └── contacto.html
+    │   ├── blog-pintura.html
+    │   ├── blog-taladro.html
+	│   └── contacto.html	  
     ├── admin/
     │   ├── index.html
     │   ├── usuarios/
@@ -111,7 +112,7 @@ Ferreteria_API/
 - `frontend/data/productos.json`: fuente inicial del catálogo; los usuarios se mantienen en `localStorage`, sin `usuarios.json`.
 - `frontend/assets/`: imágenes de productos y logotipos.
 
-Esta es la estructura aplicada al proyecto. `docs/` conserva los documentos universitarios de referencia. Las imágenes originales se conservan en `frontend/assets/img/productos/originales/`. La carpeta `backend/` se incorporará en la raíz cuando comience el desarrollo de la API.
+Esta es la estructura aplicada al proyecto. `docs/` conserva los documentos universitarios de referencia. La carpeta `backend/` se incorporará en la raíz cuando comience el desarrollo de la API.
 
 ## Ejecución local
 
@@ -148,9 +149,9 @@ Para revisar: crea una cuenta, inicia sesión, agrega un producto al carrito, ca
 
 ## Integrantes
 
-- [Completar nombre y apellido]
-- [Completar nombre y apellido]
-- [Completar nombre y apellido]
+- [Alejandro Maturana]
+- [Braulio Gomez]
+- [Joaquin Gonzalez]
 
 ## Institución
 
